@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/Layout";
 import { getSortedPostsData } from "../lib/posts";
+import Link from "next/link";
+import Date from "../components/date";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -35,15 +37,17 @@ export default function Home({ allPostsData }) {
 
       {/* Add this <section> tag below the existing <section> tag */}
       <section className="p-1">
-        <h2 className="text-lg font-medium">Blog</h2>
+        <h2 className="text-lg font-medium mb-4">Blog</h2>
         <ul>
           {allPostsData.map(({ id, date, title }) => (
-            <li className="list-item" key={id}>
-              {title}
-              <br />
-              {id}
-              <br />
-              {date}
+            <li className="list-item mb-4" key={id}>
+              <Link href={`/posts/${id}`}>
+                <a className="text-blue-500 cursor-pointer text-lg">{title}</a>
+              </Link>
+              <br/>
+              <small className="text-sm text-gray-500 mt-2">
+                <Date dateString={date} />
+              </small>
             </li>
           ))}
         </ul>

@@ -24,13 +24,17 @@ export default function Layout({ children, home }) {
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
 
+            <main>{children}</main>
 
             {!home && (
-                    <Link href="/">Go Home</Link>
+                <div className="back mt-4">
+                    <Link href="/ ">
+                        <a className="text-blue-500 ">← Back to Home</a>
+                    </Link>
+                </div>
+
             )}
 
-
-            <main>{children}</main>
         </div>
     );
 }
