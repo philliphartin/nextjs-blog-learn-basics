@@ -1,4 +1,4 @@
-import Layout from "../../components/test-layout";
+import Layout from "../../components/layout";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
