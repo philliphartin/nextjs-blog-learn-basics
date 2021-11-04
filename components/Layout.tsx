@@ -5,9 +5,15 @@ import Link from "next/link";
 const name = "LittleFox";
 export const siteTitle = "Next.js Sample Website";
 
-export default function Layout({ children, home }) {
+export default function Layout({
+    children,
+    home
+  }: {
+    children: React.ReactNode
+    home?: boolean
+  }) {
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto py-8">
             <Head>
                 <link rel="icon" href="/favicon.ico" />
                 <meta

@@ -1,9 +1,18 @@
 import Layout from "../../components/layout";
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
 import Date from "../../components/date";
 
-export default function Post({ postData }) {
+export default function Post({
+  postData
+}: {
+  postData: {
+    title: string
+    date: string
+    contentHtml: string
+  }
+}) {
   return (
     <Layout>
       <Head>
@@ -15,9 +24,9 @@ export default function Post({ postData }) {
       <Date dateString={postData.date} />
       </span>
       <br />
-      <div class="mt-4" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <div className="mt-4" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </Layout>
-  );
+  )
 }
 
 export async function getStaticPaths() {
@@ -28,7 +37,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps : GetStaticProps = async ({params}) => {
   const postData = await getPostData(params.id);
   return {
     props: {

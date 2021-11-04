@@ -19,7 +19,10 @@
     "remark-html": "^13.0.2"
   },
   "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.34",
     "autoprefixer": "^10.4.0",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.4.4"
   }
 }
